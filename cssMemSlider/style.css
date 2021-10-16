@@ -1,0 +1,189 @@
+:root {
+  --bg-main: #B0BEC5;
+  --bg-container: #546E7A;
+  --radio-main: #1E88E5;
+  --radio-hover: #29B6F6;
+  --radio-active: #0277BD;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  height: 100%;
+  background-color: var(--bg-main);
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  padding: 2rem;
+  width: 50rem;
+  border-radius: 1rem;
+  background-color: var(--bg-container);
+}
+
+.slider {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  grid-template-rows: 4fr 3rem;
+  grid-row-gap: 2rem;
+}
+
+.controls {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  display: flex;
+  gap: 1rem;
+  align-self: center;
+}
+
+.controls label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  cursor: pointer;
+}
+
+label span {
+  display: block;
+  width: 1rem;
+  height: 1rem;
+  background-color: var(--radio-main);
+  border: .3rem solid var(--radio-main);
+  border-radius: 50%;
+}
+
+input {
+  width: 0;
+  height: 0;
+  display: none;
+  appearance: none;
+}
+
+label:hover span {
+  background-color: var(--radio-hover);
+  border-color: var(--radio-hover);
+} 
+
+label:active span {
+  background-color: var(--radio-active);
+  border-color:  var(--radio-active);
+}
+
+.slides {
+  grid-column: 1 / 3;
+  grid-row: 1 / 2;
+  display: flex;
+  overflow: hidden;
+}
+
+div[id^='slide'] {
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+  transition: all .5s
+}
+
+.slides img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1.5rem;
+}
+
+.captures {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+  width: 20rem;
+  overflow: hidden;
+  align-self: center;
+}
+
+.captures .inner {
+  display: flex;
+  width: 100%;
+  transition: all .5s;
+}
+
+.captures .inner div {
+  flex-shrink: 0;
+  width: 100%;
+  font-family: Arial;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  letter-spacing: .1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: white;
+  text-shadow: 0 0 .4rem black;
+}
+
+input[id='control1']:checked ~ .controls label[for='control1'] span,
+input[id='control2']:checked ~ .controls label[for='control2'] span,
+input[id='control3']:checked ~ .controls label[for='control3'] span,
+input[id='control4']:checked ~ .controls label[for='control4'] span {
+  background-color: transparent;
+}
+
+#slide3 {
+  transform: translateX(-100%);
+}
+#slide4 {
+  transform: translateX(-200%);
+}
+
+input[id='control2']:checked ~ .slides #slide2 {
+  transform: translateX(-100%);
+}
+
+input[id='control3']:checked ~ .slides #slide3 {
+  transform: translateX(-200%);
+}
+
+input[id='control4']:checked ~ .slides #slide4 {
+  transform: translateX(-300%);
+}
+
+input[id='control2']:checked ~ .captures .inner {
+  transform: translateX(-100%);
+}
+
+input[id='control3']:checked ~ .captures .inner {
+  transform: translateX(-200%);
+}
+
+input[id='control4']:checked ~ .captures .inner {
+  transform: translateX(-300%);
+}
+
+@media (max-width: 640px) {
+  .slider {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 3rem 3rem;
+  }
+
+  .slides,
+  .controls,
+  .captures {
+    grid-column: 1 / 2;
+  }
+
+  .controls {
+    grid-row: 2 / 3;
+    margin: 0 auto;
+  }
+
+  .captures {
+    grid-row: 3 / 4;
+  }
+}
