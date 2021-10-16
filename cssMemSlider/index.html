@@ -10,28 +10,28 @@
 <body>
   <div class="container">
     <div class="slider">
+      <input type="radio" name="slider-toggle" id="control1" checked>
+      <input type="radio" name="slider-toggle" id="control2">
+      <input type="radio" name="slider-toggle" id="control3">
+      <input type="radio" name="slider-toggle" id="control4">
       <div class="controls">
-        <label><input type="radio" name="slide-btn" id="first" checked></label>
-        <label><input type="radio" name="slide-btn" id="second"></label>
-        <label><input type="radio" name="slide-btn" id="third"></label>
-        <label><input type="radio" name="slide-btn" id="forth"></label>
+        <label for="control1"><span></span></label>
+        <label for="control2"><span></span></label>
+        <label for="control3"><span></span></label>
+        <label for="control4"><span></span></label>
       </div>
       <div class="slides">
-        <!-- <img src="" alt="">
-        <img src="" alt="">
-        <img src="" alt="">
-        <img src="" alt=""> -->
         <div id="slide1"></div>
         <div id="slide2"></div>
         <div id="slide3"></div>
         <div id="slide4"></div>
       </div>
-      <div class="captures-slider">
-        <div class="captures">
-          <div>test1</div>
-          <div>test2</div>
-          <div>test3</div>
-          <div>test4</div>
+      <div class="captures">
+        <div class="inner">
+          <div id="text1">text1</div>
+          <div id="text2">text2</div>
+          <div id="text3">text3</div>
+          <div id="text4">text4</div>
         </div>
       </div>
     </div>
