@@ -100,13 +100,14 @@ div[id^='slide'] {
   border-radius: 1.5rem;
 }
 
-#slide1 {
-}
+
 #slide2 {
 }
+
 #slide3 {
   transform: translateX(-100%);
 }
+
 #slide4 {
   transform: translateX(-200%);
 }
@@ -170,4 +171,26 @@ input[id='control3']:checked ~ .captures .inner {
 
 input[id='control4']:checked ~ .captures .inner {
   transform: translateX(-300%);
+}
+
+@media (max-width: 640px) {
+  .slider {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 3rem 3rem;
+  }
+
+  .slides,
+  .controls,
+  .captures {
+    grid-column: 1 / 2;
+  }
+
+  .controls {
+    grid-row: 2 / 3;
+    margin: 0 auto;
+  }
+
+  .captures {
+    grid-row: 3 / 4;
+  }
 }
