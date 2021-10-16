@@ -42,6 +42,7 @@ body {
   grid-row: 2 / 3;
   display: flex;
   gap: 1rem;
+  align-self: center;
 }
 
 .controls label {
@@ -100,23 +101,12 @@ div[id^='slide'] {
   border-radius: 1.5rem;
 }
 
-
-#slide2 {
-}
-
-#slide3 {
-  transform: translateX(-100%);
-}
-
-#slide4 {
-  transform: translateX(-200%);
-}
-
 .captures {
   grid-column: 1 / 2;
   grid-row: 2 / 3;
   width: 20rem;
   overflow: hidden;
+  align-self: center;
 }
 
 .captures .inner {
@@ -128,24 +118,32 @@ div[id^='slide'] {
 .captures .inner div {
   flex-shrink: 0;
   width: 100%;
+  font-family: Arial;
   font-size: 1.5rem;
+  line-height: 1.5rem;
+  letter-spacing: .1rem;
   font-weight: bold;
+  text-transform: uppercase;
+  color: white;
+  text-shadow: 0 0 .4rem black;
 }
 
-input[id='control1']:checked ~ .controls label[for='control1'] span {
-  background-color: transparent;
-}
-
-input[id='control2']:checked ~ .controls label[for='control2'] span {
-  background-color: transparent;
-}
-
-input[id='control3']:checked ~ .controls label[for='control3'] span {
-  background-color: transparent;
-}
-
+input[id='control1']:checked ~ .controls label[for='control1'] span,
+input[id='control2']:checked ~ .controls label[for='control2'] span,
+input[id='control3']:checked ~ .controls label[for='control3'] span,
 input[id='control4']:checked ~ .controls label[for='control4'] span {
   background-color: transparent;
+}
+
+#slide3 {
+  transform: translateX(-100%);
+}
+#slide4 {
+  transform: translateX(-200%);
+}
+
+input[id='control2']:checked ~ .slides #slide2 {
+  transform: translateX(-100%);
 }
 
 input[id='control3']:checked ~ .slides #slide3 {
@@ -155,11 +153,6 @@ input[id='control3']:checked ~ .slides #slide3 {
 input[id='control4']:checked ~ .slides #slide4 {
   transform: translateX(-300%);
 }
-
-input[id='control2']:checked ~ .slides #slide2 {
-  transform: translateX(-100%);
-}
-
 
 input[id='control2']:checked ~ .captures .inner {
   transform: translateX(-100%);
